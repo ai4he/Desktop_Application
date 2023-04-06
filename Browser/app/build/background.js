@@ -1,6 +1,35 @@
 const api_url = "http://127.0.0.1:3333";
+chrome.runtime.onInstalled.addListener((details) => {
+    if (details.reason == "install") {
+        // Cuando se instala el valor predeterminando del switch es true
+        chrome.storage.sync.set({ isActive: true });
+    }
+});
+// Cambiando de url
 chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
-    if (changeInfo.status === 'complete') {
+    // Recuperando valor del switch
+    const storage = await chrome.storage.sync.get("isActive");
+    if (storage.isActive) {
+        chrome.action.setIcon({
+            path: {
+                16: "/images/extension-active/icon-16.png",
+                32: "/images/extension-active/icon-32.png",
+                48: "/images/extension-active/icon-48.png",
+                128: "/images/extension-active/icon-128.png"
+            }
+        });
+    }
+    else {
+        chrome.action.setIcon({
+            path: {
+                16: "/images/extension-disabled/icon-16.png",
+                32: "/images/extension-disabled/icon-32.png",
+                48: "/images/extension-disabled/icon-48.png",
+                128: "/images/extension-disabled/icon-128.png"
+            }
+        });
+    }
+    if (changeInfo.status === 'complete' && storage.isActive) {
         const sendInformation = (api_url) => {
             const sumbitInformation = async () => {
                 const data = {
@@ -21,10 +50,13 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
         chrome.scripting.executeScript({ target: { tabId }, func: sendInformation, args: [api_url] });
     }
 });
+// Pagina cargo por completo
 chrome.webNavigation.onCompleted.addListener(async (details) => {
+    // Recuperando valor del switch
+    const storage = await chrome.storage.sync.get("isActive");
     const { tabId, frameId } = details;
     // En el primer instante en el que se carga por completo la pagina (para evitar multiples injecciones)
-    if (frameId === 0) {
+    if (frameId === 0 && storage.isActive) {
         chrome.scripting
             .executeScript({
             target: { tabId },
