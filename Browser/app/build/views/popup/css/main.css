@@ -1,4 +1,12 @@
 body {
-  width: 200px;
-  height: 150px;
+  width: 260px;
+}
+
+.logs {
+  max-width: 100%;
+}
+
+#txtLogs {
+  max-height: 400px;
+  overflow: auto;
 }

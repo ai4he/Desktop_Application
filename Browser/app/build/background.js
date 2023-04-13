@@ -88,7 +88,7 @@ const addEventListeners = (api_url) => {
             const scrollEnd = async (event, starts, ends) => {
                 ends = Date.now();
                 const data = {
-                    name: event.type,
+                    name: 'scroll',
                     timestamp: Date.now(),
                     parameters: {
                         tab_name: document.title,
@@ -114,7 +114,7 @@ const addEventListeners = (api_url) => {
         const bodyElement = document.body;
         bodyElement.addEventListener('click', async (event) => {
             const data = {
-                name: event.type,
+                name: 'click',
                 timestamp: Date.now(),
                 parameters: { tab_name: document.title, url: document.URL, x: event.x, y: event.y }
             };
@@ -137,20 +137,20 @@ const addEventListeners = (api_url) => {
             let ends = 0;
             // Timer entre el inicio y finalizacion del scroll
             let scrollTimer;
-            element.addEventListener('scroll', (event) => {
+            element.addEventListener('scroll', () => {
                 if (starts === 0) {
                     starts = Date.now();
                 }
                 clearTimeout(scrollTimer);
                 scrollTimer = setTimeout(() => {
-                    scrollEnd(event, starts, ends);
+                    scrollEnd(starts, ends);
                     starts = 0;
                 }, 750);
             });
-            const scrollEnd = async (event, starts, ends) => {
+            const scrollEnd = async (starts, ends) => {
                 ends = Date.now();
                 const data = {
-                    name: event.type,
+                    name: 'scroll',
                     timestamp: Date.now(),
                     parameters: {
                         tab_name: document.title,
@@ -179,9 +179,9 @@ const addEventListeners = (api_url) => {
         // Recuperando todos los inputs
         const inputsElements = Array.from(document.getElementsByTagName('input'));
         const focusEvents = (element) => {
-            element.addEventListener('focusin', async (event) => {
+            element.addEventListener('focusin', async () => {
                 const data = {
-                    name: event.type,
+                    name: 'focusin',
                     timestamp: Date.now(),
                     parameters: { tab_name: document.title, url: document.URL }
                 };
@@ -193,9 +193,9 @@ const addEventListeners = (api_url) => {
                     .then(() => { })
                     .catch(() => { });
             });
-            element.addEventListener('focusout', async (event) => {
+            element.addEventListener('focusout', async () => {
                 const data = {
-                    name: event.type,
+                    name: 'focusout',
                     timestamp: Date.now(),
                     parameters: { tab_name: document.title, url: document.URL }
                 };
@@ -215,20 +215,20 @@ const addEventListeners = (api_url) => {
             let ends = 0;
             // Timer entre el inicio y finalizacion del typing
             let typingTimer;
-            element.addEventListener('keypress', (event) => {
+            element.addEventListener('keypress', () => {
                 if (starts === 0) {
                     starts = Date.now();
                 }
                 clearTimeout(typingTimer);
                 typingTimer = setTimeout(() => {
-                    typingEnd(event, starts, ends);
+                    typingEnd(starts, ends);
                     starts = 0;
                 }, 2000);
             });
-            const typingEnd = async (event, starts, ends) => {
+            const typingEnd = async (starts, ends) => {
                 ends = Date.now();
                 const data = {
-                    name: event.type,
+                    name: 'keypress',
                     timestamp: Date.now(),
                     parameters: { tab_name: document.title, url: document.URL, startsTimestamp: starts, endsTimestamp: ends }
                 };

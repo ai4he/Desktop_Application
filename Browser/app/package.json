@@ -1,6 +1,9 @@
 {
   "name": "app",
   "version": "1.0.0",
+  "scripts": {
+    "dev": "tsc --watch"
+  },
   "devDependencies": {
     "typescript": "^4.9.5"
   },

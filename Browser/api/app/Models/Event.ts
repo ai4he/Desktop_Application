@@ -8,7 +8,7 @@ export default class Event extends BaseModel {
   public id: number
 
   @column()
-  public name: string
+  public name: 'scroll' | 'URLChange' | 'scroll' | 'click' | 'focusin' | 'focusout' | 'keypress'
 
   @column()
   public timestamp: number

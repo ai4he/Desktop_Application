@@ -8,15 +8,25 @@
     <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
-    <div class="d-flex justify-content-center align-items-center h-100 ps-3">
+    <div class="d-flex justify-content-center my-2">
       <div class="form-check-inline form-switch">
-        <input
-          class="form-check-input me-1"
-          type="checkbox"
-          id="activeExtension"
-        />
+        <input class="form-check-input" type="checkbox" id="activeExtension" />
         <label class="form-check-label" for="activeExtension">Activar</label>
       </div>
+    </div>
+
+    <div class="logs mb-2">
+      <div class="d-flex justify-content-center mb-2">
+        <input type="date" id="dateLogs" />
+      </div>
+
+      <div id="txtLogs"></div>
+    </div>
+
+    <div class="d-flex justify-content-center mb-2">
+      <button type="button" disabled id="btnLogsDownload">
+        Descargar registros
+      </button>
     </div>
 
     <script src="../bootstrap/js/bootstrap.min.js"></script>

@@ -108,7 +108,7 @@ const addEventListeners = (api_url: string) => {
                 ends = Date.now();
 
                 const data: Event = {
-                    name: event.type,
+                    name: 'scroll',
                     timestamp: Date.now(),
                     parameters: {
                         tab_name: document.title,
@@ -139,7 +139,7 @@ const addEventListeners = (api_url: string) => {
 
         bodyElement.addEventListener('click', async (event) => {
             const data: Event = {
-                name: event.type,
+                name: 'click',
                 timestamp: Date.now(),
                 parameters: { tab_name: document.title, url: document.URL, x: event.x, y: event.y }
             }
@@ -167,7 +167,7 @@ const addEventListeners = (api_url: string) => {
             // Timer entre el inicio y finalizacion del scroll
             let scrollTimer: number;
 
-            element.addEventListener('scroll', (event) => {
+            element.addEventListener('scroll', () => {
                 if (starts === 0) {
                     starts = Date.now();
                 }
@@ -175,17 +175,17 @@ const addEventListeners = (api_url: string) => {
                 clearTimeout(scrollTimer)
                 scrollTimer = setTimeout(
                     () => {
-                        scrollEnd(event, starts, ends);
+                        scrollEnd(starts, ends);
                         starts = 0;
                     }, 750
                 );
             });
 
-            const scrollEnd = async (event: globalThis.Event, starts: number, ends: number) => {
+            const scrollEnd = async (starts: number, ends: number) => {
                 ends = Date.now();
 
                 const data: Event = {
-                    name: event.type,
+                    name: 'scroll',
                     timestamp: Date.now(),
                     parameters: {
                         tab_name: document.title,
@@ -219,9 +219,9 @@ const addEventListeners = (api_url: string) => {
         const inputsElements = Array.from(document.getElementsByTagName('input'));
 
         const focusEvents = (element: HTMLInputElement) => {
-            element.addEventListener('focusin', async (event) => {
+            element.addEventListener('focusin', async () => {
                 const data: Event = {
-                    name: event.type,
+                    name: 'focusin',
                     timestamp: Date.now(),
                     parameters: { tab_name: document.title, url: document.URL }
                 }
@@ -236,9 +236,9 @@ const addEventListeners = (api_url: string) => {
                     .catch(() => { });
             });
 
-            element.addEventListener('focusout', async (event) => {
+            element.addEventListener('focusout', async () => {
                 const data: Event = {
-                    name: event.type,
+                    name: 'focusout',
                     timestamp: Date.now(),
                     parameters: { tab_name: document.title, url: document.URL }
                 }
@@ -262,7 +262,7 @@ const addEventListeners = (api_url: string) => {
             // Timer entre el inicio y finalizacion del typing
             let typingTimer: number;
 
-            element.addEventListener('keypress', (event) => {
+            element.addEventListener('keypress', () => {
                 if (starts === 0) {
                     starts = Date.now();
                 }
@@ -270,17 +270,17 @@ const addEventListeners = (api_url: string) => {
                 clearTimeout(typingTimer)
                 typingTimer = setTimeout(
                     () => {
-                        typingEnd(event, starts, ends);
+                        typingEnd(starts, ends);
                         starts = 0;
                     }, 2000
                 );
             });
 
-            const typingEnd = async (event: KeyboardEvent, starts: number, ends: number) => {
+            const typingEnd = async (starts: number, ends: number) => {
                 ends = Date.now();
 
                 const data: Event = {
-                    name: event.type,
+                    name: 'keypress',
                     timestamp: Date.now(),
                     parameters: { tab_name: document.title, url: document.URL, startsTimestamp: starts, endsTimestamp: ends }
                 }

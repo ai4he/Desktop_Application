@@ -1,5 +1,5 @@
 export interface Event {
-    name: string,
+    name: 'scroll' | 'URLChange' | 'scroll' | 'click' | 'focusin' | 'focusout' | 'keypress',
     timestamp: number,
     parameters: Parameters
 }
