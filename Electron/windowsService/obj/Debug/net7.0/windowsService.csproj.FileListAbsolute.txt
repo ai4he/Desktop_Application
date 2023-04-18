@@ -1,0 +1,15 @@
+C:\Users\mroge\Computer_Science\Hernandez_Research\Windows_Development\windowsService\bin\Debug\net7.0\windowsService.exe
+C:\Users\mroge\Computer_Science\Hernandez_Research\Windows_Development\windowsService\bin\Debug\net7.0\windowsService.deps.json
+C:\Users\mroge\Computer_Science\Hernandez_Research\Windows_Development\windowsService\bin\Debug\net7.0\windowsService.runtimeconfig.json
+C:\Users\mroge\Computer_Science\Hernandez_Research\Windows_Development\windowsService\bin\Debug\net7.0\windowsService.dll
+C:\Users\mroge\Computer_Science\Hernandez_Research\Windows_Development\windowsService\bin\Debug\net7.0\windowsService.pdb
+C:\Users\mroge\Computer_Science\Hernandez_Research\Windows_Development\windowsService\obj\Debug\net7.0\windowsService.csproj.AssemblyReference.cache
+C:\Users\mroge\Computer_Science\Hernandez_Research\Windows_Development\windowsService\obj\Debug\net7.0\windowsService.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mroge\Computer_Science\Hernandez_Research\Windows_Development\windowsService\obj\Debug\net7.0\windowsService.AssemblyInfoInputs.cache
+C:\Users\mroge\Computer_Science\Hernandez_Research\Windows_Development\windowsService\obj\Debug\net7.0\windowsService.AssemblyInfo.cs
+C:\Users\mroge\Computer_Science\Hernandez_Research\Windows_Development\windowsService\obj\Debug\net7.0\windowsService.csproj.CoreCompileInputs.cache
+C:\Users\mroge\Computer_Science\Hernandez_Research\Windows_Development\windowsService\obj\Debug\net7.0\windowsService.dll
+C:\Users\mroge\Computer_Science\Hernandez_Research\Windows_Development\windowsService\obj\Debug\net7.0\refint\windowsService.dll
+C:\Users\mroge\Computer_Science\Hernandez_Research\Windows_Development\windowsService\obj\Debug\net7.0\windowsService.pdb
+C:\Users\mroge\Computer_Science\Hernandez_Research\Windows_Development\windowsService\obj\Debug\net7.0\windowsService.genruntimeconfig.cache
+C:\Users\mroge\Computer_Science\Hernandez_Research\Windows_Development\windowsService\obj\Debug\net7.0\ref\windowsService.dll
