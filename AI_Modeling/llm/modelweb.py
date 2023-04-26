@@ -3,10 +3,10 @@ import sys
 import json
 import time
 import openai
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from flask import Flask, request, render_template, redirect, url_for, jsonify
 
-load_dotenv()
+# load_dotenv()
 sessions = {}
 stop_tokens = ['GET_NEW_ACTIVITIES:']
 finish_tokens = ['END_SESSION:', 'STATUS_FINISH']
