@@ -1,0 +1,6 @@
+source https://api.nuget.org/v3/index.json
+
+storage: none
+framework: net5.0, netstandard2.0, netstandard2.1
+nuget SQLite.Universal 3.28.0
+nuget System.Data.SQLite 1.0.117
