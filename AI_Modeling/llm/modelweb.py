@@ -153,14 +153,14 @@ def process(session_id):
   result = {}
   if session['initial']:
     session['initial'] = False
-    sections = process_input(session_id, {'GET_MY_GOALS:': session['goal'], 'GET_ACTIVITIES:': session['activities'][-1]}, {'GIVE_REFLECTION:':''}, enforce='GIVE_SCHEDULE:')
+    sections = process_input(session_id, {'GET_MY_GOALS:': session['goal'], 'GET_ACTIVITIES:': session['activities'][-1]}, {'GIVE_REFLECTION:':''}, enforce='GIVE_REFLECTION:')
     for section in sections:
       result[section] = sections[section]
   else:
     sections = process_input(session_id, {'GET_NEW_ACTIVITIES:': session['activities'][-1]}, {'GIVE_DECISION:':'STATE_'})
     for section in sections:
       result[section] = sections[section]
-    sections = loop_or_finish(session_id, 'GIVE_SCHEDULE:', 'END_SESSION:', 'STATUS_RETURN', 'STATUS_FINISH')
+    sections = loop_or_finish(session_id, 'GIVE_REFLECTION:', 'END_SESSION:', 'STATUS_RETURN', 'STATUS_FINISH')
     for section in sections:
       result[section] = sections[section]
   return result
