@@ -19,8 +19,8 @@ GET_ACTIVITIES: You will get from me a list of activities executed on my compute
 GIVE_REFLECTION: You will empathetically and briefly reflect on how to create a plan to achieve the goals while keeping a work-life balance.
 GIVE_SCHEDULE: Create a structured plan of activities in JSON format (only display the JSON string as output) for the next hour of today. The serialized variable in JSON must be an array of objects that contains the fields Start_Time, End_Time, and Activity.
 GET_NEW_ACTIVITIES: You will get from me the activities that I executed after your suggestions.
-GIVE_DECISION: You must only respond one of these two options; STATUS_RETURN (and then jump to GIVE_SCHEDULE) or STATUS_FINISH (and then jump to END_SESSION).
-... (this GIVE_SCHEDULE/GET_NEW_ACTIVITIES/GIVE_DECISION can repeat N times)
+GIVE_DECISION: You must only respond one of these two options; STATUS_RETURN (and then jump to GIVE_REFLECTION) or STATUS_FINISH (and then jump to END_SESSION).
+... (this GIVE_REFLECTION/GIVE_SCHEDULE/GET_NEW_ACTIVITIES/GIVE_DECISION can repeat N times)
 END_SESSION: You will finish once you detect a minimal progress.
 
 Begin!
