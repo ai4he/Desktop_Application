@@ -84,7 +84,7 @@ def chat_completion(session_id, query, stop_tokens, track_tokens_arr):
     if len(token) > max_length:
       max_length = len(token)
 
-  session['messages'].append({"role": "user", "content": query})  
+  # session['messages'].append({"role": "user", "content": query})  
   print(session['messages'])
   response = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
