@@ -139,7 +139,7 @@ def enforce_next(session_id, next_step):
 def process_next(session_id, query, next_step, enforce=False):
   global sessions
   session = sessions[session_id]
-  print(next_step)
+  # print(next_step)
   reply = chat_completion(session_id, query, stop_tokens, track_tokens_arr)
   session['messages'].append({"role": "assistant", "content": reply})
   reply = next_action + reply
@@ -179,7 +179,7 @@ def process_input(session_id, input_dict, output_dict, enforce=False):
     output_state = key
     query += f'\n{key} {output_dict[key]}'
   session['messages'].append({"role": "user", "content": query})
-  print(output_state)
+  # print(output_state)
   reply = chat_completion(session_id, query, stop_tokens, track_tokens_arr)
   session['messages'].append({"role": "assistant", "content": reply})
   reply = f'{output_state} ' + reply
@@ -195,10 +195,10 @@ def loop_or_finish(session_id, loop_state, finish_state, loop_token, finish_toke
   session = sessions[session_id]
   sections = {}
   if loop_token in session['last_reply'] and loop_state not in session['last_reply']:
-    print(loop_state)
+    # print(loop_state)
     sections = enforce_next(session_id, loop_state)
   elif finish_token in session['last_reply'] and finish_state not in session['last_reply']:
-    print(finish_state)
+    # print(finish_state)
     sections = enforce_next(session_id, finish_state)
   return sections
 
