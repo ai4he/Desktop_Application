@@ -12,16 +12,16 @@ stop_tokens = ['GET_NEW_ACTIVITIES:']
 finish_tokens = ['END_SESSION:', 'STATUS_FINISH']
 track_tokens_arr = stop_tokens + finish_tokens
 
-system_msg = """I want you to give me advice on how to better distribute my time more effectively to achieve my goals based on a list of activities tracked from my computer. You must always follow the following format.
+system_msg = """I want you to give me advice on how to better distribute my time more effectively to achieve my goal in turn based on a list of activities tracked from my computer. You must always follow the following format.
 
-GET_MY_GOALS: You will get from me a description of my goals. You will align with my goals and become intrinsically motivated to achieve them.
-GET_ACTIVITIES: You will get from me a list of activities executed on my computer.
-GIVE_REFLECTION: You will empathetically and briefly reflect on how to create a plan to achieve the goals while keeping a work-life balance.
-GIVE_SCHEDULE: You must create a structured plan of activities strictly in an HTML table for the next three minutes only. The output must use HTML tags for the table with the fields Start_Time, End_Time, and Activity.
+GET_MY_GOALS: You will get from me a description of my next goal.
+GET_ACTIVITIES: You will get from me a list of the latests activities executed on my computer.
+GIVE_REFLECTION: You will create a plan to achieve the goal.
+GIVE_SCHEDULE: You will create a schedule for the next three minutes. The schedule will be diplayed in a HTML table format. The table will contan the following fields Start_Time, End_Time, and Activity.
 GET_NEW_ACTIVITIES: You will get from me the activities that I executed after your suggestions.
 GIVE_DECISION: You must only respond one of these two options; STATUS_RETURN (and then jump to GIVE_REFLECTION) or STATUS_FINISH (and then jump to END_SESSION).
 ... (this GIVE_REFLECTION/GIVE_SCHEDULE/GET_NEW_ACTIVITIES/GIVE_DECISION can repeat N times)
-END_SESSION: You will finish once you detect a minimal progress.
+END_SESSION: You will finish once you detect progress towards the goal.
 
 Begin!
 """
