@@ -80,7 +80,7 @@ def finish_process(session_id):
 def chat_completion(session_id, query, stop_tokens, track_tokens_arr):
   global sessions
   session = sessions[session_id]
-  print('')
+  # print('')
   found_token = False
   max_length = 0
   for token in track_tokens_arr:
