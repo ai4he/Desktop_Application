@@ -9,18 +9,20 @@ from flask import Flask, request, render_template, redirect, url_for, jsonify
 # load_dotenv()
 sessions = {}
 stop_tokens = ['GET_NEW_ACTIVITIES:']
-finish_tokens = ['END_SESSION:', 'STATUS_FINISH']
+# finish_tokens = ['END_SESSION:', 'STATUS_FINISH']
+finish_tokens = []
 track_tokens_arr = stop_tokens + finish_tokens
 
 system_msg = """I want you to give me advice on how to better distribute my time more effectively to achieve my goal in turn based on a list of activities tracked from my computer. You must always follow the following format.
 
 GET_MY_GOALS: You will get from me a description of my next goal.
 GET_ACTIVITIES: You will get from me a list of the latests activities executed on my computer.
-GIVE_REFLECTION: You will create a brief plan to achieve the goal. Be concise.
-GIVE_SCHEDULE: You will create a schedule for the next three (3) minutes. The schedule must be diplayed using HTML tags. The HTML table will contan the following fields Start_Time, End_Time, and Activity.
+GIVE_REFLECTION: You will create a brief plan to achieve the goal.
+GIVE_SCHEDULE: You will create a brief schedule for the next three (3) minutes. The schedule must be diplayed using HTML tags. The HTML table will contan the following fields Start_Time, End_Time, and Activity.
 GET_NEW_ACTIVITIES: You will get from me the activities that I executed after your suggestions.
-GIVE_DECISION: You must only respond STATUS_RETURN (and then jump to GIVE_REFLECTION).
-... (this GIVE_REFLECTION/GIVE_SCHEDULE/GET_NEW_ACTIVITIES can repeat N times)
+GIVE_DECISION: You must only respond one of these two options; STATUS_RETURN (and then jump to GIVE_REFLECTION) or STATUS_FINISH (and then jump to END_SESSION).
+... (this GIVE_REFLECTION/GIVE_SCHEDULE/GET_NEW_ACTIVITIES/GIVE_DECISION can repeat N times)
+END_SESSION: You will finish once you detect progress towards the goal.
 
 Begin!
 """
