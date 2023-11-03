@@ -19,9 +19,8 @@ GET_ACTIVITIES: You will get from me a list of the latests activities executed o
 GIVE_REFLECTION: You will create a brief plan to achieve the goal.
 GIVE_SCHEDULE: You will create a brief schedule for the next three (3) minutes. The schedule must be diplayed using HTML tags. The HTML table will contan the following fields Start_Time, End_Time, and Activity.
 GET_NEW_ACTIVITIES: You will get from me the activities that I executed after your suggestions.
-GIVE_DECISION: You must only respond one of these two options; STATUS_RETURN (and then jump to GIVE_REFLECTION) or STATUS_FINISH (and then jump to END_SESSION).
-... (this GIVE_REFLECTION/GIVE_SCHEDULE/GET_NEW_ACTIVITIES/GIVE_DECISION can repeat N times)
-END_SESSION: You will finish once you detect progress towards the goal.
+GIVE_DECISION: You must only respond STATUS_RETURN (and then jump to GIVE_REFLECTION).
+... (this GIVE_REFLECTION/GIVE_SCHEDULE/GET_NEW_ACTIVITIES can repeat N times)
 
 Begin!
 """
