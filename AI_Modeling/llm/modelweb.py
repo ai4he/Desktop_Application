@@ -17,7 +17,6 @@ system_msg = """I want you to give me advice on how to better distribute my time
 
 GET_MY_GOALS: You will get from me a description of my next goal.
 GET_ACTIVITIES: You will get from me a list of the latests activities executed on my computer.
-#GIVE_REFLECTION: You will create a brief plan to achieve the goal.The plan must be diplayed using HTML tags as bullet points.The HTML table will contain the following fields Discription.
 GIVE_REFLECTION: You will always create a brief very short plan(50 words) to achieve the goal.
 GIVE_SCHEDULE: You will always create a brief schedule for the next three (3) minutes. The schedule must be diplayed using HTML tags. The HTML table will contain the following fields Start_Time, End_Time, and Activity.
 GET_NEW_ACTIVITIES: You will get from me the activities that I executed after your suggestions.
@@ -27,6 +26,7 @@ GIVE_DECISION: You must only respond one of these two options; STATUS_RETURN (an
 Begin!
 """
 
+# #GIVE_REFLECTION: You will create a brief plan to achieve the goal.The plan must be diplayed using HTML tags as bullet points.The HTML table will contain the following fields Discription.
 # GIVE_SCHEDULE: Create a structured plan of activities in JSON format (only display the JSON string as output) for the next hour of today. The JSON output must be an array that contains schedule objects. Each schedule object contains the fields Start_Time, End_Time, and Activity. No 
 # GIVE_SCHEDULE: Create a structured plan of activities as a table. table should have following fields Start_Time, End_Time, and Activity.Please give a shedule for each rows for every 5 minutes.Please don't give unncessary elements and sentences.Need only the table.
 app = Flask(__name__)
