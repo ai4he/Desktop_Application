@@ -19,7 +19,9 @@ GET_MY_GOALS: You will get from me a description of my next goal.
 GET_ACTIVITIES: You will get from me a list of the latests activities executed on my computer.
 #GIVE_REFLECTION: You will create a brief plan to achieve the goal.The plan must be diplayed using HTML tags as bullet points.The HTML table will contain the following fields Discription.
 #GIVE_REFLECTION: You will create a brief very short plan(50 words) to achieve the goal.
-GIVE_REFLECTION: Please provide me with a brief plan to achieve my goal, formatted as bullet points.
+GIVE_REFLECTION: Please provide me with a brief plan to achieve my goal.Can you format the plan in bullet points? Here's an example of how I'd like it:
+First bullet point
+Second bullet point
 GIVE_SCHEDULE: You will create a brief schedule for the next three (3) minutes. The schedule must be diplayed using HTML tags. The HTML table will contain the following fields Start_Time, End_Time, and Activity.
 GET_NEW_ACTIVITIES: You will get from me the activities that I executed after your suggestions.
 GIVE_DECISION: You must only respond one of these two options; STATUS_RETURN (and then jump to GIVE_REFLECTION) or STATUS_FINISH (and then jump to END_SESSION).
